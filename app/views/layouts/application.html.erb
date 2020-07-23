@@ -10,6 +10,43 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <span class="header-logo">Bookers</span>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarEexample">
+          <ul class="nav navbar-nav navbar-right nav-hover">
+              <li>
+                <%= link_to(root_path) do %>
+                  <span class="glyphicon glyphicon-home " aria-hidden="true"></span>Home
+                <% end %>
+              </li>
+              <li>
+                <%= link_to(home_about_path) do %>
+                  <span class="glyphicon glyphicon-link" aria-hidden="true"></span>About
+                <% end %>
+              </li>
+              <li>
+                <%= link_to(new_user_registration_path) do %>
+                  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Sign up
+                <% end %>
+              </li>
+              <li>
+                <%= link_to(new_user_session_path) do %>
+                  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>login
+                <% end %>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
+    <div class="container">
+  <div class="row">
+    <p class="col-xs-3 col-xs-offset-9">CopyRight Infratop.inc</p>
+  </div>
+</div>
+
   </body>
 </html>
