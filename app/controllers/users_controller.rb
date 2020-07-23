@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!
 
   def index
-  	@user = User.find(params[:id])
   	@users = User.all
   end
 
@@ -15,11 +15,10 @@ class UsersController < ApplicationController
 
   def update
   	@user = User.find(params[:id])
-  	@user.update(user_params)
-  	redirect_to users_path
-
-  private
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
+  end
   def user_params
-  	params.require(:user).permit(:name, :profile_image, :introduction)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 end

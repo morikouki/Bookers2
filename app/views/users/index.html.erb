@@ -10,14 +10,15 @@
         		</tr>
     		</thead>
     		<tbody>
+                <% @users.each do |user| %>
         		<tr>
             		<td>プロフィール画像</td>
-            		<td>投稿者</td>
-            		<td><%= link_to 'show' %></td>
+            		<td><%= user.name %></td>
+            		<td><%= link_to 'show', user_path(user.id) %></td>
         		</tr>
+                <% end %>
     		</tbody>
 		</table>
-		<h2>User info</h2>
-		<%= @user.name %>
+        <%= render partial: 'userinfo', locals: { 'user': '@user' }%>
 	</div>
 </div>
