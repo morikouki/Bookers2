@@ -1,49 +1,33 @@
-
-   <div class="container">
-	<div class="row">
-		<h2>User info</h2>
-		<%= attachment_image_tag @user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "pull-left profile-img", fallback: "noimage.jpg",size:'100x100' %>
-		<table class="table">
-			<tbody>
-				<tr>
-					<th>name</th>
-					<td><%= @user.name %></td>
-				</tr>
-				<tr>
-					<th>introduction</th>
-					<td><%= @user.introduction %></td>
-				</tr>
-			</tbody>
-		</table>
-		<%= link_to(edit_user_path{@user}) do %>
-        	<span class="btn btn-default glyphicon glyphicon-wrench" aria-hidden="true"></span>
-        <% end %>
-	</div>
-</div>
 <div class="container">
 	<div class="row">
-		<h2>Books</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th></th>
-					<th>Title</th>
-					<th>Opinion</th>
-				</tr>
-			</thead>
-			<tbody>
-				<% @books.each do |book| %>
-				<tr>
-						<td><%= attachment_image_tag book.user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "pull-left profile-img", fallback: "noimage.jpg",size:'100x100' %></td>
-						<td><%= link_to book_path(book.id) do %>
-							<%= book.title %>
-						    <% end %>
-						</td>
-						<td><%= book.body %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
+		<div class="col-xs-3">
+			<%= render 'info', user: @user %>
+    <%= render '/books/newbook', book: @book %>
+		</div>
 
+		<div class="col-xs-9">
+			<h2>Books</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Title</th>
+						<th>Opinion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @books.each do |book| %>
+					<tr>
+							<td><%= attachment_image_tag book.user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "pull-left profile-img", fallback: "noimage.jpg",size:'100x100' %></td>
+							<td><%= link_to book_path(book.id) do %>
+								<%= book.title %>
+							    <% end %>
+							</td>
+							<td><%= book.body %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
