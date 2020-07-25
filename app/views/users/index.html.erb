@@ -12,13 +12,13 @@
     		<tbody>
                 <% @users.each do |user| %>
         		<tr>
-            		<td>プロフィール画像</td>
+            		<td><%= attachment_image_tag user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "pull-left profile-img", fallback: "" %></td>
             		<td><%= user.name %></td>
             		<td><%= link_to 'show', user_path(user.id) %></td>
         		</tr>
                 <% end %>
     		</tbody>
 		</table>
-       
 	</div>
 </div>
+
