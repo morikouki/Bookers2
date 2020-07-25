@@ -19,6 +19,13 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to user_path(@user.id)
   end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to user_path
+  end
+
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
