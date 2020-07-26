@@ -1,19 +1,28 @@
 
 		<h2>User info</h2>
-		<%= attachment_image_tag @user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "pull-left profile-img", fallback: "noimage.jpg",size:'100x100' %>
+		<%= attachment_image_tag user, :profile_image, :fill, 80, 80, format: 'jpeg', class: "pull-left profile-img", fallback: "noimage.jpg",size:'100x100' %>
 		<table class="table">
 			<tbody>
 				<tr>
 					<th>name</th>
-					<td><%= @user.name %></td>
+					<td><%= user.name %></td>
 				</tr>
 				<tr>
 					<th>introduction</th>
-					<td><%= @user.introduction %></td>
+					<td><%= user.introduction %></td>
 				</tr>
 			</tbody>
 		</table>
-		<%= link_to(edit_user_path{@user}) do %>
-        	<span class="btn btn-default glyphicon glyphicon-wrench btn-block" aria-hidden="true"></span>
-        <% end %>
+		<div class="row">
+			<% if user.id == current_user.id %>
+				<%= link_to edit_user_path(user.id) do %>
+		        	<span class="btn btn-default glyphicon glyphicon-wrench col-xs-12" aria-hidden="true"></span>
+		        <% end %>
+	        <% else %>
+		        <%= link_to user_path(current_user.id) do %>
+		        	<span class="btn btn-default glyphicon glyphicon-wrench col-xs-12" aria-hidden="true"></span>
+		        <% end %>
+	        <% end %>
+
+    	</div>
 	
