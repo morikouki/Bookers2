@@ -1,6 +1,18 @@
 <div class="container">
 	<div class="row">
 		<h2>User info</h2>
+		<% if @user.errors.any? %>
+   			<p class="error">error!!!!</p>
+		<% end %>
+		<% if @user.errors.any? %>
+ 			 <div class="alert alert-warning">
+   				 <ul>
+     				 <% @user.errors.full_messages.each do |message| %>
+        				<li><%= message %></li>
+     				 <% end %>
+    			</ul>
+  			</div>
+		<% end %>
 		<%= form_for(@user) do |f| %>
 		  <div class="field">
 		  	<label for="user_name">Name</label>
