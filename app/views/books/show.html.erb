@@ -30,8 +30,8 @@
 						<td><%= @bookk.title %></td>
 						<td><%= @bookk.body %></td>
 						<% if @user.id == current_user.id %>
-							<td><%= link_to 'edit', edit_book_path, class: "btn btn-success btn-sm" %></td>
-							<td><%= link_to 'destroy', book_path, class: "btn btn-danger btn-sm" ,method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+							<td><%= link_to 'Edit', edit_book_path, class: "btn btn-success btn-sm" %></td>
+							<td><%= link_to 'Destroy', book_path, class: "btn btn-danger btn-sm" ,method: :delete, "data-confirm" => "本当に消しますか?" %></td>
 						<% end %>
 					</tr>
 				</tbody>
