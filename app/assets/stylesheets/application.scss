@@ -36,3 +36,16 @@ body {
 .field, .actions {
 	margin: 10px 0;
 }
+
+.flash {
+	color: green;
+}
+
+.alert {
+	color: red;
+}
+
+.error-message {
+	color: red;
+	font-size: 30px;
+}

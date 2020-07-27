@@ -64,13 +64,12 @@
         </div>
       </div>
     </nav>
-    
-    <%= yield %>
     <div class="container">
-  <div class="row">
-    <p class="col-xs-3 col-xs-offset-9">CopyRight Infratop.inc</p>
-  </div>
-</div>
-
+      <%= render 'layouts/notifications' %>
+      <%= yield %>
+      <div class="row">
+        <p class="col-xs-3 col-xs-offset-9">CopyRight Infratop.inc</p>
+      </div>
+    </div>
   </body>
 </html>
