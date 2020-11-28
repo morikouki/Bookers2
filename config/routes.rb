@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   devise_for :users
   resources :users do
+  	resource :favorite, only: [:create, :destroy]
   	resources :relationships, only: [:create, :destroy]
   	get 'follower' => 'relationships#follower'
   	get 'followed' => 'relationships#followed'
