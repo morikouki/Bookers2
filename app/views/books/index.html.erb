@@ -35,13 +35,13 @@
                     		<td><%= link_to book.title, book_path(book.id) %></td>
                     		<td><%= book.body %></td>
                             <td>
-                                <% if favorited_by?(current_user) %>
-                                    <%= link_to user_favorite_path(current_user), method: :delete do %>
-                                        <i class="far fa-heart"></i>
+                                <% if book.favorited_by?(current_user) %>
+                                    <%= link_to book_favorite_path(book), method: :delete do %>
+                                        <i class="fas fa-heart"></i>
                                     <% end %>
                                 <% else %>
-                                    <%= link_to user_favorite_path(current_user), method: :post do %>
-                                        <i class="fas fa-heart"></i>
+                                    <%= link_to book_favorite_path(book), method: :post do %>
+                                        <i class="far fa-heart"></i>
                                     <% end %>
                                 <% end %>
                             </td>
